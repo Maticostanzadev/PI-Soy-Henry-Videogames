@@ -1,6 +1,6 @@
 require('dotenv').config();
 const axios = require('axios');
-const { Videogame, Genre, Platform } = require('../db');
+const { Videogame, Genre } = require('../db');
 const { API_KEY } = process.env;
 
 async function getGameDetailApi(idVideogame) {
@@ -36,13 +36,7 @@ async function getGameDetailDb(idVideogame) {
       include: [
         {
           model: Genre,
-          atributes: ['name'],
-          through: {
-            attributes: []
-          }
-        }, {
-          model: Platform,
-          atributes: ['name'],
+          attributes: ['name'],
           through: {
             attributes: []
           }

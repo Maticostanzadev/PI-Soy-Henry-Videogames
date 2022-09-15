@@ -1,6 +1,6 @@
 require('dotenv').config();
 const axios = require('axios');
-const { Videogame, Genre, Op } = require('../db');
+const { Videogame, Genre } = require('../db');
 const { API_KEY } = process.env;
 
 async function getGenresApi() {
@@ -23,9 +23,10 @@ async function getGenres() {
       let toCreate = await getGenresApi()
 
       await Genre.bulkCreate(toCreate)
+      genresDb = await Genre.findAll()
     }
 
-    return await Genre.findAll()
+    return genresDb
   }
 
   catch (e) {

@@ -55,7 +55,7 @@ async function getGamesDb(game) {
     } : {},
     include: {
       model: Genre,
-      attributes: ["id", "name"],
+      attributes: ["name"],
       through: { attributes: [] }
     }
   })

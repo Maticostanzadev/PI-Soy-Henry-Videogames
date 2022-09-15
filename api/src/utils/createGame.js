@@ -1,7 +1,5 @@
 require('dotenv').config();
-const axios = require('axios');
-const { Videogame, Genre, Platform, Op } = require('../db');
-const { API_KEY } = process.env;
+const { Videogame } = require('../db');
 
 async function createGame({ name, description, genres, platforms, release_date, rating, background_image }) {
   try {
@@ -15,6 +13,7 @@ async function createGame({ name, description, genres, platforms, release_date, 
         release_date,
         rating,
         background_image,
+        platforms
       }
     });
 
@@ -23,7 +22,6 @@ async function createGame({ name, description, genres, platforms, release_date, 
     }
 
     game.addGenres(genres);
-    game.addPlatforms(platforms)
 
     return { msg: "El videojuego se ha creado con éxito" }
   }

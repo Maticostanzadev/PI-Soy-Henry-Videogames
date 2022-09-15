@@ -28,6 +28,10 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       // validate: { isUrl: true },
     },
+    platforms: {
+      type: DataTypes.ARRAY(DataTypes.STRING),
+      allowNull: false,
+    },
     created: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
