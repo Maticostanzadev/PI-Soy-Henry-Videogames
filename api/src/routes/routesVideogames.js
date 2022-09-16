@@ -3,11 +3,14 @@ const { Router } = require('express');
 // Traigo las funciones necesarias
 const { getGames } = require('../utils/getGames')
 const { createGame } = require('../utils/createGame')
+const { getPlatforms } = require('../utils/getPlatforms')
+const { getGenres } = require('../utils/getGenres')
 
 const router = Router();
 
 router.get('/', async (req, res) => {
-  let genres = await getGenres()
+  await getPlatforms()
+  await getGenres()
 
   const { game } = req.query
 
