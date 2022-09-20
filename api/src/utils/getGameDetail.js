@@ -12,13 +12,13 @@ async function getGameDetailApi(idVideogame) {
     let gameDetail = {
       name: gameDetailApi.name,
       background_image: gameDetailApi.background_image,
-      genre: gameDetailApi.genres.map(g => {
+      Genres: gameDetailApi.genres.map(g => {
         return g.name
       }),
-      description: gameDetailApi.description,
+      description: gameDetailApi.description_raw,
       release_date: gameDetailApi.released,
       rating: gameDetailApi.rating,
-      platform: gameDetailApi.platforms.map(p => {
+      platforms: gameDetailApi.platforms.map(p => {
         return p.platform.name
       })
     }
@@ -26,7 +26,7 @@ async function getGameDetailApi(idVideogame) {
     return gameDetail
   }
   catch (e) {
-    return { msg: "No se encontraron juegos con ese ID" }
+    return { msgError: "No se encontraron juegos con ese ID" }
   }
 }
 
@@ -47,7 +47,7 @@ async function getGameDetailDb(idVideogame) {
     return gameDetail
   }
   catch (e) {
-    return { msg: "No se encontraron juegos con ese ID" }
+    return { msgError: "No se encontraron juegos con ese ID" }
   }
 }
 

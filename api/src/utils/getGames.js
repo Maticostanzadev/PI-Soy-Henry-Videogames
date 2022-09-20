@@ -47,7 +47,7 @@ async function getGamesDb(game) {
   let infoDb = []
 
   infoDb = await Videogame.findAll({
-    attributes: ["background_image", "name"],
+    attributes: ["id", "background_image", "name"],
     where: game ? {
       name: {
         [Op.iLike]: `%${game}%`
@@ -70,6 +70,7 @@ async function getGames(game) {
 
     gamesApi = gamesApi.map(game => {
       return {
+        id: game.id,
         name: game.name,
         background_image: game.background_image,
         genres: game.genres
