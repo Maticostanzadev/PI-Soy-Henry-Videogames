@@ -1,13 +1,16 @@
 import React from 'react';
 import './card.css'
 
-export default function Card({ name, background_image, genres }) {
+export default function Card({ name, background_image, genres, rating }) {
   return (
     <div className='cardContainer'>
       <img src={background_image} alt="Imagen" className='cardImg' />
       <div className="cardInfo">
         <div className='cardName'>
           {name}
+        </div>
+        <div>
+          {rating}
         </div>
         <div className='cardGenres'>
           {genres

@@ -1,8 +1,8 @@
-import { FILTER_BY_CREATED, FILTER_BY_GENRES, GET_GAMES, GET_GAME_DETAILS, GET_GENRES, GET_PLATFORMS, RESET_GAMES, SET_PAGE, SORT_NAME } from "../actions/index";
+import { FILTER_BY_CREATED, FILTER_BY_GENRES, GET_GAMES, GET_GAME_DETAILS, GET_GENRES, GET_PLATFORMS, RESET_FILTERS, RESET_GAMES, SET_PAGE, SORT_GAMES } from "../actions/index";
 
 let initialState = {
   allGames: [],
-  filteredsGames: [],
+  filteredGames: [],
   filtersApplied: {
     genres: "All",
     created: "All",
@@ -20,7 +20,7 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         allGames: action.payload,
-        filteredsGames: action.payload
+        filteredGames: action.payload
       }
     case GET_GAME_DETAILS:
       return {
@@ -47,34 +47,86 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         allGames: action.payload
       }
+
     case FILTER_BY_GENRES:
-      let allGamesG = state.filteredsGames
+      let allGamesG
+
+      if (state.filtersApplied.created === "All") {
+        allGamesG = state.allGames
+      } else if (state.filtersApplied.created === "DB") {
+        allGamesG = state.allGames.filter(g => g.created)
+      } else {
+        allGamesG = state.allGames.filter(g => !g.created)
+      }
+
       let gamesFilteredsG = action.payload === "All"
-        ? state.filteredsGames
+        ? allGamesG
         : allGamesG.filter(g => g.genres.includes(action.payload))
+
       return {
         ...state,
-        allGames: gamesFilteredsG
+        filteredGames: gamesFilteredsG,
+        filtersApplied: {
+          ...state.filtersApplied,
+          genres: action.payload
+        }
       }
+
     case FILTER_BY_CREATED:
-      let allGamesC = state.filteredsGames
+      let allGamesC
+
+      if (state.filtersApplied.genres === "All") {
+        allGamesC = state.allGames
+      } else {
+        allGamesC = state.allGames.filter(g => g.genres.includes(state.filtersApplied.genres))
+      }
+
       let gamesFilteredsC = action.payload === "All"
-        ? state.filteredsGames
+        ? allGamesC
         : action.payload === "DB"
           ? allGamesC.filter(g => g.created)
           : allGamesC.filter(g => !g.created)
+
       return {
         ...state,
-        allGames: gamesFilteredsC
+        filteredGames: gamesFilteredsC,
+        filtersApplied: {
+          ...state.filtersApplied,
+          created: action.payload
+        }
       }
-    // case SORT_NAME:
-    //   // if (action.payload === "default") 
-    //   //   action.payload === "asc" ?
 
-    //   return {
-    //     ...state,
-    //     allGames:
-    //   }
+    case SORT_GAMES:
+      let allGamesSort = state.filteredGames
+
+      if (action.payload === "nameAsc")
+        allGamesSort.sort((a, b) => a.name.localeCompare(b.name))
+      if (action.payload === "nameDesc")
+        allGamesSort.sort((a, b) => b.name.localeCompare(a.name))
+      if (action.payload === "ratingAsc")
+        allGamesSort.sort((a, b) => a.rating - b.rating)
+      if (action.payload === "ratingDesc")
+        allGamesSort.sort((a, b) => b.rating - a.rating)
+
+      return {
+        ...state,
+        filteredGames: allGamesSort,
+        filtersApplied: {
+          ...state.filtersApplied,
+          sort: action.payload
+        }
+      }
+
+    case RESET_FILTERS:
+      return {
+        ...state,
+        filtersApplied: {
+          genres: "All",
+          created: "All",
+          sort: "none",
+        }
+      }
+
     default:
       return state;
   }
