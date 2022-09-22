@@ -1,12 +1,8 @@
-
-
-
 import React, { useEffect, useState } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { getGames, getGenres, filterByGenres, filterByCreated, sortGames } from '../../redux/actions'
-import './cards.css'
-
-export default function Filter() {
+import './filters.css'
+export default function Filters() {
   //Pedir estado a redux
   let { allGames, allGenres, filtersApplied } = useSelector(state => state)
   let dispatch = useDispatch()
@@ -46,45 +42,43 @@ export default function Filter() {
   }
 
   return (
-    <div>
+    <div className="filtersContainer">
       {/* -------------------------------- FILTERS ------------------------------- */}
-      <div>
-        {/* ------------------------------- GENRES ------------------------------- */}
-        <div>
-          <label>Géneros</label>
-          <select className="filterSelect" name="genres" id="genres" onChange={handleFilterGenres}>
-            <option className="filterOptions" value="All" name="All">Todos</option>
-            {allGenres?.map(genre => (
-              <option key={genre.id} value={genre.name} name={genre.name}>{genre.name}</option>
-            ))}
-          </select>
-        </div>
-        {/* ------------------------------ END GENRES ----------------------------- */}
-
-        {/* ------------------------------- CREATED ------------------------------- */}
-        <div>
-          <label>Origen</label>
-          <select className="filterSelect" name="created" onChange={handleFilterCreated}>
-            <option value="All" name="All">Todos</option>
-            <option value="DB" name="DB">Base de datos</option>
-            <option value="API" name="API">API externa</option>
-          </select>
-        </div>
-        {/* ---------------------------- END CREATED ----------------------------- */}
-
-        {/* -------------------------------- SORT -------------------------------- */}
-        <div>
-          <label>Ordenar</label>
-          <select className="filterSelect" name="orderName" onChange={handleSortGames}>
-            <option value="none" name="none">Ordenar por:</option>
-            <option value="nameAsc" name="asc">Nombre A-Z</option>
-            <option value="nameDesc" name="desc">Nombre Z-A</option>
-            <option value="ratingAsc" name="asc">Rating -- ++</option>
-            <option value="ratingDesc" name="desc">Rating ++ --</option>
-          </select>
-        </div>
-        {/* ------------------------------ END SORT ------------------------------ */}
+      {/* ------------------------------- GENRES ------------------------------- */}
+      <div className="filterContainer">
+        <label>Géneros</label>
+        <select className="filterSelect" name="genres" id="genres" onChange={handleFilterGenres}>
+          <option className="filterOptions" value="All" name="All">Todos</option>
+          {allGenres?.map(genre => (
+            <option className="filterOptions" key={genre.id} value={genre.name} name={genre.name}>{genre.name}</option>
+          ))}
+        </select>
       </div>
+      {/* ------------------------------ END GENRES ----------------------------- */}
+
+      {/* ------------------------------- CREATED ------------------------------- */}
+      <div className="filterContainer">
+        <label>Origen</label>
+        <select className="filterSelect" name="created" onChange={handleFilterCreated}>
+          <option className="filterOptions" value="All" name="All">Todos</option>
+          <option className="filterOptions" value="DB" name="DB">Base de datos</option>
+          <option className="filterOptions" value="API" name="API">API externa</option>
+        </select>
+      </div>
+      {/* ---------------------------- END CREATED ----------------------------- */}
+
+      {/* -------------------------------- SORT -------------------------------- */}
+      <div className="filterContainer">
+        <label>Ordenar</label>
+        <select className="filterSelect" name="orderName" onChange={handleSortGames}>
+          <option className="filterOptions" value="none" name="none">Ordenar por:</option>
+          <option className="filterOptions" value="nameAsc" name="asc">Nombre A-Z</option>
+          <option className="filterOptions" value="nameDesc" name="desc">Nombre Z-A</option>
+          <option className="filterOptions" value="ratingAsc" name="asc">Rating -- ++</option>
+          <option className="filterOptions" value="ratingDesc" name="desc">Rating ++ --</option>
+        </select>
+      </div>
+      {/* ------------------------------ END SORT ------------------------------ */}
       {/* ------------------------------ END FILTERS ----------------------------- */}
     </div>
   )

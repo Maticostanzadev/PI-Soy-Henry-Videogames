@@ -24,19 +24,9 @@ async function getGamesApi(game) {
     return {
       id: g.id,
       name: g.name,
-      release_date: g.released,
       rating: g.rating,
       background_image: g.background_image,
-      Genres: g.genres.map(genre => {
-        return {
-          name: genre.name
-        }
-      }),
-      platforms: g.platforms.map(p => {
-        return {
-          name: p.platform.name
-        }
-      }),
+      Genres: g.genres.map(genre => genre.name),
       created: false
     }
   })
@@ -61,6 +51,17 @@ async function getGamesDb(game) {
     }
   })
 
+  infoDb = infoDb.map(game => {
+    return {
+      id: game.id,
+      name: game.name,
+      background_image: game.background_image,
+      genres: game.Genres.map(g => g.name),
+      created: true,
+      rating: game.rating
+    }
+  })
+
   return infoDb
 }
 
@@ -69,27 +70,6 @@ async function getGames(game) {
     let gamesApi = await getGamesApi(game);
     let gamesDb = await getGamesDb(game);
 
-    gamesApi = gamesApi.map(game => {
-      return {
-        id: game.id,
-        name: game.name,
-        background_image: game.background_image,
-        genres: game.Genres.map(g => g.name),
-        created: false,
-        rating: game.rating
-      }
-    })
-
-    gamesDb = gamesDb.map(game => {
-      return {
-        id: game.id,
-        name: game.name,
-        background_image: game.background_image,
-        genres: game.Genres.map(g => g.name),
-        created: true,
-        rating: game.rating
-      }
-    })
     // let games = gamesApi.concat(gamesDb);
     let games = gamesDb.concat(gamesApi);
 

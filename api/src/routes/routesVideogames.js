@@ -1,7 +1,7 @@
 const { Router } = require('express');
 
 // Traigo las funciones necesarias
-const { getGames } = require('../utils/getGames')
+const { getGames, getGamesDb } = require('../utils/getGames')
 const { createGame } = require('../utils/createGame')
 const { getPlatforms } = require('../utils/getPlatforms')
 const { getGenres } = require('../utils/getGenres')
@@ -11,7 +11,7 @@ const router = Router();
 router.get('/', async (req, res) => {
   const { game } = req.query
 
-  let games = await getGames(game)
+  let games = await getGamesDb(game)
 
   let statusCode
   games.msgError ? statusCode = 400 : statusCode = 200

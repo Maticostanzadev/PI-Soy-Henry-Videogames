@@ -1,15 +1,13 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import CardsRecharge from "../Cards recharge/CardsRecharge";
-import SearchBar from "../SearchBar/SearchBar";
+import React from 'react';
+import { Link } from 'react-router-dom';
 import './nav.css'
 
-export default function Home() {
+export default function Nav() {
   return (
-    <div className="navCointainer">
-      <SearchBar />
-      <CardsRecharge />
-      <Link className="link" to="/videogames/create">Agregar nuevo Juego</Link>
+    <div className="navContainer">
+      <Link className="linkInitial link" to="/">Inicio</Link>
+      <Link className="linkHome link" to="/videogames">Página principal</Link>
+      <Link className="linkCreate link" to="/videogames/create">Agregar juego</Link>
     </div>
   )
 }

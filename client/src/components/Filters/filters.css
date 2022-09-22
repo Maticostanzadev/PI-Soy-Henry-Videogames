@@ -1,0 +1,11 @@
+.filtersContainer {
+  background-color: burlywood;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  color: white;
+}
+
+.filterContainer {
+  margin: 5px 10px
+}

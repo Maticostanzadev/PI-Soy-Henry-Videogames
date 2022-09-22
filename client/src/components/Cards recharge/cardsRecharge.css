@@ -1,10 +1,11 @@
-.rechargeContainer {
+/* .rechargeContainer {
+  background-color: yellow;
   display: flex;
   justify-content: center;
   width: 100%;
 }
 
 .rechargeButton {
-  width: 25%;
+  width: 80%;
   cursor: pointer;
-}
+} */
