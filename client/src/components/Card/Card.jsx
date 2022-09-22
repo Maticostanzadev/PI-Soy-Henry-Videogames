@@ -12,7 +12,7 @@ export default function Card({ name, background_image, genres }) {
         <div className='cardGenres'>
           {genres
             ? genres.map(g => {
-              return <div key={genres.indexOf(g)} className='cardGenre'>{g.name}</div>
+              return <div key={genres.indexOf(g)} className='cardGenre'>{g}</div>
             })
 
             : "No se saben los géneros"}

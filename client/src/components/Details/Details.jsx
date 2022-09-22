@@ -9,8 +9,6 @@ export default function Details() {
   let stateGameDetails = useSelector(state => state.gameDetails)
   let dispatch = useDispatch()
   let { id } = useParams()
-  console.log("id=" + id)
-  console.log(stateGameDetails)
 
   useEffect(() => {
     dispatch(getGameDetails(id))

@@ -9,7 +9,7 @@ router.get('/', async (req, res) => {
   let platforms = await getPlatforms();
 
   let statusCode
-  genres.msgError ? statusCode = 400 : statusCode = 200
+  platforms.msgError ? statusCode = 400 : statusCode = 200
 
   res.status(statusCode).json(platforms)
 })

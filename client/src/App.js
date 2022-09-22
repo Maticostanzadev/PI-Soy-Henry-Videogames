@@ -4,6 +4,7 @@ import { Route } from "react-router-dom";
 import Home from './components/Home/Home'
 import InitialPage from './components/InitialPage/InitialPage'
 import Details from "./components/Details/Details";
+import Create from "./components/Create/Create";
 
 
 function App() {
@@ -11,7 +12,8 @@ function App() {
     <div>
       <Route path="/" exact component={InitialPage} />
       <Route path="/videogames" exact component={Home} />
-      <Route path="/videogame/:id" component={Details} />
+      <Route path="/videogame/:id" exact component={Details} />
+      <Route path="/videogames/create" exact component={Create} />
     </div>
   );
 }

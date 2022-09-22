@@ -24,7 +24,6 @@ export default function SearchBar() {
     }
   }
 
-  console.log(inp)
   return (
     <div className="searchContainer">
       <form onSubmit={onSubmit} className="form">

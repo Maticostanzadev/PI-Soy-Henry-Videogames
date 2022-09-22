@@ -26,8 +26,8 @@ module.exports = (sequelize) => {
     },
     background_image: {
       type: DataTypes.STRING,
-      // validate: { isUrl: true },
-      defaultValue: "../../Imagen_No_Disponible.png"
+      validate: { isUrl: true },
+      defaultValue: "https://i.ibb.co/hZL7KR3/Imagen-No-Disponible.png"
     },
     platforms: {
       type: DataTypes.ARRAY(DataTypes.STRING),

@@ -1,0 +1,19 @@
+.pagContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+}
+
+.npButton {
+  width: 100px;
+  margin: 0px 10px;
+  cursor: pointer;
+}
+
+.numButton {
+  width: 25px;
+  margin: 0px 10px;
+  cursor: pointer;
+}

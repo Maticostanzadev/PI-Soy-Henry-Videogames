@@ -27,7 +27,7 @@ async function getGamesApi(game) {
       release_date: g.released,
       rating: g.rating,
       background_image: g.background_image,
-      genres: g.genres.map(genre => {
+      Genres: g.genres.map(genre => {
         return {
           name: genre.name
         }
@@ -36,7 +36,8 @@ async function getGamesApi(game) {
         return {
           name: p.platform.name
         }
-      })
+      }),
+      created: false
     }
   })
 
@@ -47,7 +48,7 @@ async function getGamesDb(game) {
   let infoDb = []
 
   infoDb = await Videogame.findAll({
-    attributes: ["id", "background_image", "name"],
+    attributes: ["id", "background_image", "name", "created"],
     where: game ? {
       name: {
         [Op.iLike]: `%${game}%`
@@ -73,7 +74,18 @@ async function getGames(game) {
         id: game.id,
         name: game.name,
         background_image: game.background_image,
-        genres: game.genres
+        genres: game.Genres.map(g => g.name),
+        created: false
+      }
+    })
+
+    gamesDb = gamesDb.map(game => {
+      return {
+        id: game.id,
+        name: game.name,
+        background_image: game.background_image,
+        genres: game.Genres.map(g => g.name),
+        created: true
       }
     })
     // let games = gamesApi.concat(gamesDb);

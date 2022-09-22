@@ -1,4 +1,4 @@
-.container {
+.landingContainer {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -10,12 +10,12 @@
   background-position: center
 }
 
-.title {
+.landingTitle {
   color: rgb(82, 154, 176);
   margin-bottom: 20px;
 }
 
-button {
+.landingButton {
   height: 30px;
   width: 715px;
   border: none;

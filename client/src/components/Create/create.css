@@ -1,0 +1,65 @@
+.createForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.PROBANDO {
+  background-color: grey;
+  display: flex;
+  flex-direction: column;
+}
+
+/* .sectionContainers {
+  background-color: rgb(161, 161, 161);
+  height: 100px;
+  width: 600px;
+  margin: 10px;
+} */
+
+.formDivs {
+  display: flex;
+  flex-direction: row;
+  margin: 10px 0;
+}
+
+.createForm label {
+  margin-left: 10px;
+  display: flex;
+  width: 170px;
+}
+
+.createInput {
+  width: 40%;
+  height: 30px;
+  color: black;
+  outline: none;
+}
+
+.errorInput {
+  width: 40%;
+  height: 30px;
+  color: black;
+  border: 1px solid red;
+  outline: none;
+}
+
+.errorText {
+  font-size: 13px;
+  color: red;
+}
+
+.pgContainer {
+  margin: 10px;
+  height: 100px;
+  border: 2px solid black;
+  width: 500px;
+}
+
+.sectionContainers img {
+  width: 500px;
+}
+
+.inputComplete {
+  display: flex;
+  flex-direction: row;
+}

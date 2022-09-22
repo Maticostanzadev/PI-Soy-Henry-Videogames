@@ -1,8 +1,7 @@
 import React from 'react';
-import CardsRecharge from '../Cards recharge/CardsRecharge';
 import Cards from '../Cards/Cards';
-import SearchBar from '../SearchBar/SearchBar';
-import Paginated from '../Paginated/Paginated';
+import Nav from '../Nav/Nav'
+
 import './home.css'
 
 export default function Home() {
@@ -10,11 +9,8 @@ export default function Home() {
 
   return (
     <div>
-      <SearchBar />
-      <CardsRecharge />
-      <Paginated />
       <div className='homeContainer'>
-        <h1>Acá tienen que aparecer las cartas</h1>
+        <Nav />
         <Cards />
       </div>
     </div>

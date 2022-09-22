@@ -13,7 +13,9 @@ async function getGameDetailApi(idVideogame) {
       name: gameDetailApi.name,
       background_image: gameDetailApi.background_image,
       Genres: gameDetailApi.genres.map(g => {
-        return g.name
+        return {
+          name: g.name
+        }
       }),
       description: gameDetailApi.description_raw,
       release_date: gameDetailApi.released,
@@ -59,6 +61,7 @@ async function getGameDetail(idVideogame) {
     } else {
       gameDetail = await getGameDetailDb(idVideogame)
     }
+
 
     return gameDetail
   }

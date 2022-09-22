@@ -9,9 +9,6 @@ const { getGenres } = require('../utils/getGenres')
 const router = Router();
 
 router.get('/', async (req, res) => {
-  await getPlatforms()
-  await getGenres()
-
   const { game } = req.query
 
   let games = await getGames(game)
