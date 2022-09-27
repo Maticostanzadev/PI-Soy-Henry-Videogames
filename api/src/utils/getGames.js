@@ -4,6 +4,30 @@ const { Videogame, Genre, Op } = require('../db');
 const { API_KEY } = process.env;
 
 async function getGamesApi(game) {
+
+  //PRACTICAR CON PROMESAS
+  // let infoApi = []
+  // let url = `https://api.rawg.io/api/games?key=${API_KEY}`
+
+  // axios.get(url).then(response => {
+  //   infoApi = infoApi.concat(response.data.results)
+  //   url = response.data.next
+  // }).then(response => axios.get(url).then(response => {
+  //   infoApi = infoApi.concat(response.data.results)
+  //   url = response.data.next
+  // })).then(response => axios.get(url).then(response => {
+  //   infoApi = infoApi.concat(response.data.results)
+  //   url = response.data.next
+  // })).then(response => axios.get(url).then(response => {
+  //   infoApi = infoApi.concat(response.data.results)
+  //   url = response.data.next
+  // })).then(response => axios.get(url).then(response => {
+  //   infoApi = infoApi.concat(response.data.results)
+  // })).then(response => {
+  //   return infoApi.map(e => e.name)
+  // })
+  //PRACTICAR CON PROMESAS
+
   let infoApi = []
   if (!game) {
     let url = `https://api.rawg.io/api/games?key=${API_KEY}`
