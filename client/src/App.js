@@ -17,7 +17,6 @@ function App() {
       <Route path="/videogames" exact component={Home} />
       <Route path="/videogames/create" exact component={Create} />
       <Route path="/videogames/detail/:id" exact component={Details} />
-      <Route path="/hola" exact component={Warning} />
     </div>
   );
 }

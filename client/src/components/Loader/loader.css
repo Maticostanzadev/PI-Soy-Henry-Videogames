@@ -14,8 +14,9 @@
 .loaderContainer .loader {
   width: 150px;
   height: 150px;
-  border: 2px solid #8d7368;
-  border-top: 2px solid var(--color-primario);
+  border: 2px solid var(--bg-primario);
+  border-top: 2px solid #8d7368;
+  border-right: 2px solid #8d7368;
   border-radius: 50%;
   animation: loader .75s linear infinite;
 }

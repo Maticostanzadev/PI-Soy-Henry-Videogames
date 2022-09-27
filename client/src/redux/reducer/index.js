@@ -6,7 +6,7 @@ let initialState = {
   filtersApplied: {
     genres: "none",
     created: "none",
-    sort: "none",
+    sort: "nameAsc",
   },
   gameDetails: {},
   gameCreated: [],
@@ -128,7 +128,7 @@ const rootReducer = (state = initialState, action) => {
         filtersApplied: {
           genres: "none",
           created: "none",
-          sort: "none",
+          sort: "nameAsc",
         }
       }
 
@@ -141,7 +141,7 @@ const rootReducer = (state = initialState, action) => {
         filtersApplied: {
           genres: "none",
           created: "none",
-          sort: "none",
+          sort: "nameAsc",
         }
       }
 
