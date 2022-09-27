@@ -62,11 +62,14 @@ async function getGameDetail(idVideogame) {
       gameDetail = await getGameDetailDb(idVideogame)
     }
 
+    if (Object.keys(gameDetail).length < 0) {
+      gameDetail = { msgError: "No se encontraron juegos con ese ID" }
+    }
 
     return gameDetail
   }
   catch (e) {
-    return { msgError: "Hubo un error al intentar obtener la información requerida" }
+    return { msgError: "No se encontraron juegos con ese ID" }
   }
 }
 

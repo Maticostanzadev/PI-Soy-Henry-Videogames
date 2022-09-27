@@ -19,6 +19,8 @@ async function getGamesApi(game) {
     infoApi = infoApiGames.data.results.slice(0, 15)
   }
 
+  infoApi = infoApi.filter(game => game.id !== 58134)
+
   let infoSelected = infoApi.map(g => {
     // return g.name
     return {

@@ -6,13 +6,14 @@ export const GET_GENRES = "GET_GENRES"
 export const GET_PLATFORMS = "GET_PLATFORMS"
 export const CREATE_GAME = "CREATE_GAME"
 export const SET_PAGE = "SET_PAGE"
-export const RESET_GAMES = "RESET_GAMES"
 export const FILTER_BY_GENRES = "FILTER_BY_GENRES"
 export const FILTER_BY_CREATED = "FILTER_BY_CREATED"
 export const SORT_GAMES = "SORT_GAMES"
+export const RESET_GAMES = "RESET_GAMES"
 export const RESET_FILTERS = "RESET_FILTERS"
 export const RESET_GAME_DETAIL = "RESET_GAME_DETAIL"
 export const RESET_CREATE = "RESET_CREATE"
+export const RESET_PLATFORMS = "RESET_PLATFORMS"
 
 export function getGames(game) {
   return function (dispatch) {
@@ -44,6 +45,8 @@ export function getGameDetails(id) {
     return axios.get(`http://localhost:3001/videogame/${id}`)
       .then(response => {
         dispatch({ type: GET_GAME_DETAILS, payload: response.data })
+      }, error => {
+        dispatch({ type: GET_GAME_DETAILS, payload: error.response.data })
       })
   }
 }
@@ -91,4 +94,8 @@ export function resetGames() {
 
 export function resetGameDetail() {
   return { type: RESET_GAME_DETAIL, payload: {} };
-}
+};
+
+export function resetPlatforms() {
+  return { type: RESET_PLATFORMS, payload: [] };
+};

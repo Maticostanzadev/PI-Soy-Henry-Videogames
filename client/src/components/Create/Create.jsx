@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { createGame, getGenres, getPlatforms, resetCreate } from '../../redux/actions';
+import { createGame, getGenres, getPlatforms, resetCreate, resetPlatforms } from '../../redux/actions';
 import './create.css'
 
 export default function Create() {
@@ -30,9 +30,7 @@ export default function Create() {
   }, [])
 
   useEffect(() => {
-    if (!allPlatforms.length) {
-      dispatch(getPlatforms())
-    }
+    dispatch(getPlatforms())
   }, [])
 
   //------------------------ Validation ------------------------//
@@ -142,10 +140,14 @@ export default function Create() {
   }
 
   useEffect(() => {
-    if (gameCreated.msgError) alert(gameCreated.msgError)
+    if (gameCreated.msgError) {
+      alert(gameCreated.msgError)
+      dispatch(resetCreate())
+    }
 
     if (gameCreated.msg) {
       alert(gameCreated.msg)
+      dispatch(resetCreate())
       setGame({
         name: "",
         description: "",

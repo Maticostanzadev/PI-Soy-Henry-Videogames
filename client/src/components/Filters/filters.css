@@ -43,3 +43,7 @@
   background-color: var(--bg-primario);
   color: var(--color-primario);
 }
+
+select {
+  outline: none;
+}

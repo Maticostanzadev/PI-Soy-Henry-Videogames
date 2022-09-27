@@ -1,7 +1,7 @@
 import React from 'react';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getGames, getGenres } from '../../redux/actions';
+import { getGames, getGenres, resetPlatforms } from '../../redux/actions';
 import Cards from '../Cards/Cards';
 import NavHome from '../NavHome/NavHome'
 
@@ -17,6 +17,7 @@ export default function Home() {
   }, [dispatch])
 
   useEffect(() => {
+    dispatch(resetPlatforms())
     if (!allGames.length) {
       dispatch(getGames())
     }

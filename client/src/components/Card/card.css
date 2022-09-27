@@ -12,7 +12,8 @@
   border-radius: 20px;
   overflow: hidden;
   transition: .4s;
-  box-shadow: 0px 0px 11px 1px rgba(0, 0, 0, 0.524);
+  box-shadow: 0px 0px 15px 3px rgba(0, 0, 0, 0.524);
+  outline: 1px solid var(--color-primario);
 }
 
 .cardContainer img {
@@ -22,7 +23,8 @@
   object-fit: cover;
   object-position: center;
   z-index: 10;
-  transition: .5s;
+  transition: .45s;
+  transform: translateY(-20px);
 }
 
 .bgImg {
@@ -155,6 +157,7 @@
 .cardContainer:hover img {
   filter: blur(4px);
   opacity: 85%;
+  transform: translateY(0px);
 }
 
 /* ----------------- */

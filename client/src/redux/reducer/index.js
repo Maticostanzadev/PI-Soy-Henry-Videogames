@@ -1,11 +1,11 @@
-import { CREATE_GAME, FILTER_BY_CREATED, FILTER_BY_GENRES, GET_GAMES, GET_GAME_DETAILS, GET_GENRES, GET_PLATFORMS, RESET_CREATE, RESET_FILTERS, RESET_GAMES, RESET_GAME_DETAIL, SET_PAGE, SORT_GAMES } from "../actions/index";
+import { CREATE_GAME, FILTER_BY_CREATED, FILTER_BY_GENRES, GET_GAMES, GET_GAME_DETAILS, GET_GENRES, GET_PLATFORMS, RESET_CREATE, RESET_FILTERS, RESET_GAMES, RESET_GAME_DETAIL, RESET_PLATFORMS, SET_PAGE, SORT_GAMES } from "../actions/index";
 
 let initialState = {
   allGames: [],
   filteredGames: [],
   filtersApplied: {
-    genres: "All",
-    created: "All",
+    genres: "none",
+    created: "none",
     sort: "none",
   },
   gameDetails: {},
@@ -53,7 +53,7 @@ const rootReducer = (state = initialState, action) => {
     case FILTER_BY_GENRES:
       let allGamesG
 
-      if (state.filtersApplied.created === "All") {
+      if (state.filtersApplied.created === "All" || state.filtersApplied.created === "none") {
         allGamesG = state.allGames
       } else if (state.filtersApplied.created === "DB") {
         allGamesG = state.allGames.filter(g => g.created)
@@ -68,6 +68,7 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         filteredGames: gamesFilteredsG,
+        currentPage: 1,
         filtersApplied: {
           ...state.filtersApplied,
           genres: action.payload
@@ -77,7 +78,7 @@ const rootReducer = (state = initialState, action) => {
     case FILTER_BY_CREATED:
       let allGamesC
 
-      if (state.filtersApplied.genres === "All") {
+      if (state.filtersApplied.genres === "All" || state.filtersApplied.genres === "none") {
         allGamesC = state.allGames
       } else {
         allGamesC = state.allGames.filter(g => g.genres.includes(state.filtersApplied.genres))
@@ -92,6 +93,7 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         filteredGames: gamesFilteredsC,
+        currentPage: 1,
         filtersApplied: {
           ...state.filtersApplied,
           created: action.payload
@@ -113,6 +115,7 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         filteredGames: allGamesSort,
+        currentPage: 1,
         filtersApplied: {
           ...state.filtersApplied,
           sort: action.payload
@@ -123,8 +126,8 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         filtersApplied: {
-          genres: "All",
-          created: "All",
+          genres: "none",
+          created: "none",
           sort: "none",
         }
       }
@@ -133,7 +136,13 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         allGames: action.payload,
-        filteredGames: action.payload
+        filteredGames: action.payload,
+        currentPage: 1,
+        filtersApplied: {
+          genres: "none",
+          created: "none",
+          sort: "none",
+        }
       }
 
     case RESET_CREATE:
@@ -148,6 +157,11 @@ const rootReducer = (state = initialState, action) => {
         gameDetails: action.payload
       }
 
+    case RESET_PLATFORMS:
+      return {
+        ...state,
+        allPlatforms: action.payload
+      }
     default:
       return state;
   }

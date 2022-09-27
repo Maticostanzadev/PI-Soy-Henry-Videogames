@@ -5,7 +5,8 @@ async function createGame({ name, description, genres, platforms, release_date, 
   try {
 
     if (!name || !description || platforms.length === 0) return { msgError: "Los campos name, description y platforms son obligatorios" };
-    if (genres.length === 0) return { msgError: "El juego debe contener al menos un género" }
+    if (genres.length === 0) return { msgError: "EL JUEGO DEBE CONTENER AL MENOS UN GÉNERO, POR FAVOR AGRÉGALO Y VUELVE A INTENTAR!" }
+    if (!background_image) background_image = "https://i.ibb.co/hZL7KR3/Imagen-No-Disponible.png"
 
     const [game, created] = await Videogame.findOrCreate({
       where: { name },
@@ -19,15 +20,15 @@ async function createGame({ name, description, genres, platforms, release_date, 
     });
 
     if (!created) {
-      return { msgError: "El videojuego ya existe" }
+      return { msgError: "YA EXISTE UN VIDEOJUEGO CON ESE NOMBRE, POR FAVOR ELIJA OTRO Y VUELVA A INTENTAR!" }
     }
 
     game.addGenres(genres);
 
-    return { msg: "El videojuego se ha creado con éxito" }
+    return { msg: "EL VIDEOJUEGO SE HA CREADO CON ÉXITO, PUEDES VERLO EN LA PÁGINA PRINCIPAL!" }
   }
   catch (e) {
-    return { msgError: "Hubo un error al intentar crear el videojuego" }
+    return { msgError: "LO LAMENTAMOS, HUBO UN ERROR AL INTENTAR CREAR EL VIDEOJUEGO!" }
   }
 }
 
