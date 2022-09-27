@@ -11,6 +11,8 @@ export const FILTER_BY_GENRES = "FILTER_BY_GENRES"
 export const FILTER_BY_CREATED = "FILTER_BY_CREATED"
 export const SORT_GAMES = "SORT_GAMES"
 export const RESET_FILTERS = "RESET_FILTERS"
+export const RESET_GAME_DETAIL = "RESET_GAME_DETAIL"
+export const RESET_CREATE = "RESET_CREATE"
 
 export function getGames(game) {
   return function (dispatch) {
@@ -69,9 +71,15 @@ export function createGame(info) {
     return axios.post(`http://localhost:3001/videogames`, info)
       .then(response => {
         dispatch({ type: CREATE_GAME, payload: response.data })
+      }, error => {
+        dispatch({ type: CREATE_GAME, payload: error.response.data })
       })
   }
 }
+
+export function resetCreate() {
+  return { type: RESET_CREATE, payload: [] };
+};
 
 export function setPage(page) {
   return { type: SET_PAGE, payload: page };
@@ -80,3 +88,7 @@ export function setPage(page) {
 export function resetGames() {
   return { type: RESET_GAMES, payload: [] };
 };
+
+export function resetGameDetail() {
+  return { type: RESET_GAME_DETAIL, payload: {} };
+}

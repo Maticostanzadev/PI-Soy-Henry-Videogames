@@ -5,9 +5,13 @@ import './initialPage.css';
 export default function InitialPage() {
   return (
     <div className="landingContainer">
-      <h1 className="landingTitle">BIENVENIDOS A LA PÁGINA DE LOS JUEGUITOS</h1>
       <Link to="/videogames">
-        <button className="landingButton">Click aquí para ir a la página principal</button>
+        <button className="landingButton">
+          <div className="landingIcon">
+            <i className="fa-solid fa-circle-arrow-right"></i>
+          </div>
+          <span>COMENZAR</span>
+        </button>
       </Link>
     </div>
   )

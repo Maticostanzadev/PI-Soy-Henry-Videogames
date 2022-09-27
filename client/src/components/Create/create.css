@@ -1,65 +1,304 @@
+.createContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 95.2vh;
+  max-height: 95.2vh;
+  width: 204vh;
+  background: rgba(0, 0, 0, 0.7) url(https://media.rawg.io/media/games/73e/73eecb8909e0c39fb246f457b5d6cbbe.jpg);
+  background-blend-mode: darken;
+  color: var(--color-primario);
+}
+
 .createForm {
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 }
 
-.PROBANDO {
-  background-color: grey;
-  display: flex;
-  flex-direction: column;
-}
-
-/* .sectionContainers {
-  background-color: rgb(161, 161, 161);
-  height: 100px;
-  width: 600px;
-  margin: 10px;
-} */
-
-.formDivs {
+.createPanels {
   display: flex;
   flex-direction: row;
-  margin: 10px 0;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
 }
 
-.createForm label {
-  margin-left: 10px;
+.leftRightForm {
   display: flex;
-  width: 170px;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 50%;
+  max-width: 50%;
+  padding: 40px;
+  /* box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.75); */
 }
 
-.createInput {
-  width: 40%;
-  height: 30px;
-  color: black;
-  outline: none;
+.leftForm {
+  background-color: var(--bg-primario);
+  margin-left: 80px;
+  /* margin-right: 40px; */
+}
+
+.inputGroup {
+  position: relative;
+  width: 100%;
+}
+
+.createInput,
+.errorInput {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  font: inherit;
+  color: var(--color-primario);
+  background-color: transparent;
+  outline: 2px solid var(--color-primario);
+  transition: .35s;
 }
 
 .errorInput {
-  width: 40%;
-  height: 30px;
-  color: black;
-  border: 1px solid red;
-  outline: none;
+  outline: 2px solid rgb(236, 57, 57);
+}
+
+.inputLabel,
+.errorLabel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(30px, -17px);
+  background-color: var(--bg-primario);
+  padding: 0px 5px;
+  font-size: 18px;
+  transition: .2s;
+}
+
+.errorLabel {
+  color: rgb(236, 57, 57);
+}
+
+.createInput:focus,
+.errorInput:focus {
+  transform: scale(1.02);
+  background-color: var(--color-primario);
+  color: var(--bg-primario);
+  outline: transparent;
+}
+
+.createInput:focus+.inputLabel,
+.errorLabel {
+  /* transform: scale(1.02); */
+  background-color: transparent;
+  transform: translate(5px, -30px);
 }
 
 .errorText {
+  position: absolute;
+  color: rgb(236, 57, 57);
+  margin-top: 5px;
+  /* margin-bottom: -15px; */
   font-size: 13px;
-  color: red;
 }
 
-.pgContainer {
-  margin: 10px;
-  height: 100px;
-  border: 2px solid black;
-  width: 500px;
+.errorText i {
+  margin-right: 5px;
 }
 
-.sectionContainers img {
-  width: 500px;
+textarea {
+  resize: none;
 }
 
-.inputComplete {
+.rightForm {
+  background-color: var(--bg-primario);
+  margin-right: 80px;
+  /* margin-left: 40px; */
+}
+
+.twoSelects {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  height: 22.5%;
+  min-height: 22.5%;
+  max-height: 22.5%;
+  /* outline: 3px solid green; */
+}
+
+.inputSelect {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.inputSelectError {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.isLeft {
+  margin-right: 50px;
+}
+
+.createSelect {
+  background-color: transparent;
+  color: var(--color-primario);
+  width: 60%;
+  height: 40px;
+  font-size: 15px;
+  text-align: center;
+  border: 1px solid var(--color-primario);
+  cursor: pointer;
+  transition: .25s;
+}
+
+.createSelect select:hover {
+  background-color: var(--color-primario);
+  border: 1px solid var(--bg-primario);
+  color: var(--bg-primario);
+}
+
+.createSelect option {
+  background-color: var(--bg-primario);
+  color: var(--color-primario);
+}
+
+.totalSelect {
+  /* background-color: yellow; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.totalSelectL {
+  margin-right: 20px;
+}
+
+.totalSelectRError {
+  outline-color: red;
+}
+
+.totalSelectL::before,
+.totalSelectR::before {
+  content: "Podrás agregar un máximo de 6 géneros";
+  width: 100%;
+  color: var(--color-primario);
+  position: absolute;
+  bottom: -18px;
+  left: 0;
+  text-align: center;
+  font-size: 12px;
+}
+
+.totalSelectR::before {
+  content: "Podrás agregar un máximo de 8 plataformas";
+}
+
+.selecteds {
+  padding: 2px 2px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  font-size: 14px;
+  width: 100%;
+  height: 65%;
+}
+
+.oneSelected {
+  background-color: var(--color-primario);
+  position: relative;
+  color: var(--bg-primario);
+  margin: 1px 1px;
+  /* display: ; */
+  width: 48%;
+  padding-left: 5px;
+}
+
+.oneSelected i {
+  position: absolute;
+  font-size: 18px;
+  top: 1.5px;
+  right: 2px;
+  cursor: pointer;
+}
+
+.inputGroupImage {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 80px;
+  /* margin-bottom: 30px; */
+  height: 70%;
+  padding: 0;
+}
+
+.visual {
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.inputGroup img {
+  margin-top: 15px;
+  width: 495px;
+  height: 320px;
+  outline: 2px solid var(--color-primario);
+  object-fit: cover;
+  padding: 15px;
+}
+
+.createButton {
+  margin: 20px 0 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  min-height: 35px;
+  min-width: 500px;
+  font-size: 22px;
+  background-color: var(--bg-primario);
+  color: var(--color-primario);
+  border: 2px double var(--color-primario);
+  cursor: default;
+  transition: .25s;
+}
+
+.createButton:hover {
+  cursor: pointer;
+}
+
+.createButton:hover {
+  transform: scale(1.03);
+}
+
+.createButton:active {
+  transform: scale(0.99);
+}
+
+.createButton:disabled {
+  /* text-decoration: line-through; */
+  opacity: 20%;
+  transition: none;
+}
+
+.createButton:disabled:hover {
+  opacity: 20%;
+  transform: none;
+  cursor: default;
+}
+
+.createButton:disabled:active {
+  opacity: 20%;
+  transform: none;
+}
+
+.errorTextPlatform {
+  margin-top: 42px;
+  font-size: 12.5px;
 }

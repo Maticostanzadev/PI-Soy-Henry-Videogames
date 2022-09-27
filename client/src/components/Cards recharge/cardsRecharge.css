@@ -1,11 +1,27 @@
-/* .rechargeContainer {
-  background-color: yellow;
-  display: flex;
-  justify-content: center;
-  width: 100%;
+:root {
+  --bg-primario: #282A28;
+  --color-primario: #EEE0CB;
 }
 
 .rechargeButton {
-  width: 80%;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 17%;
+  height: 40px;
+  font-size: 15px;
+  border: 1px solid var(--color-primario);
+  color: var(--color-primario);
+  /* border-radius: 5px; */
+  margin-left: 50px;
   cursor: pointer;
-} */
+  transition: .25s;
+  overflow: hidden;
+}
+
+.rechargeButton:hover {
+  background-color: var(--color-primario);
+  border: 1px solid var(--bg-primario);
+  color: var(--bg-primario);
+}

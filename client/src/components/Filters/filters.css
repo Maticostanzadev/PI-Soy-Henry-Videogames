@@ -1,11 +1,45 @@
+:root {
+  --bg-primario: #282A28;
+  --color-primario: #EEE0CB;
+}
+
 .filtersContainer {
-  background-color: burlywood;
-  width: 100%;
+  margin-right: 40px;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+  height: 40px;
   display: flex;
   flex-direction: row;
-  color: white;
+  color: var(--color-primario);
 }
 
 .filterContainer {
-  margin: 5px 10px
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.filterContainer select {
+  background-color: transparent;
+  color: var(--color-primario);
+  width: 90%;
+  height: 40px;
+  font-size: 14px;
+  text-align: center;
+  /* border-radius: 5px; */
+  border: 1px solid var(--color-primario);
+  cursor: pointer;
+  transition: .25s;
+}
+
+.filterContainer select:hover {
+  background-color: var(--color-primario);
+  border: 1px solid var(--bg-primario);
+  color: var(--bg-primario);
+}
+
+.filterContainer option {
+  background-color: var(--bg-primario);
+  color: var(--color-primario);
 }

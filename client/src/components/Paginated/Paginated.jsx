@@ -12,12 +12,12 @@ export default function Paginated({ paginated, gamesPerPage, allGames, next, pre
   return (
     <div className="pagContainer">
       {pages.length
-        ? <div>
-          <button className="npButton" onClick={() => previous()} >PREVIOUS</button>
+        ? <div className="buttonContainer">
+          <button className="pButton" onClick={() => previous()} >ANTERIOR</button>
           {pages.map(page => (
             <button className="numButton" onClick={() => paginated(page)} key={page} >{page}</button>
           ))}
-          <button className="npButton" onClick={() => next()} >NEXT</button>
+          <button className="nButton" onClick={() => next()} >SIGUIENTE</button>
         </div>
         : <></>
       }

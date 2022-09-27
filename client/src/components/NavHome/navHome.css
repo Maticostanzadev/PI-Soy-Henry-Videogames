@@ -1,16 +1,14 @@
-/* .navHomeContainer {
-  background-color: rgb(52, 52, 52);
-  display: flex;
-  flex-direction: row;
-  height: 20vh;
-  width: 100%;
-  justify-content: space-around;
-  align-items: center;
+:root {
+  --bg-primario: #282A28;
+  --color-primario: #EEE0CB
 }
 
-.link {
-  background-color: blue;
+.navHomeContainer {
+  background-color: var(--bg-primario);
+  display: flex;
+  flex-direction: row;
+  height: 8vh;
   width: 100%;
-  margin: 0;
-  color: white;
-} */
+  justify-content: space-between;
+  align-items: center;
+}

@@ -26,8 +26,9 @@ async function getGamesApi(game) {
       name: g.name,
       rating: g.rating,
       background_image: g.background_image,
-      Genres: g.genres.map(genre => genre.name),
-      created: false
+      genres: g.genres.map(genre => genre.name),
+      created: false,
+      platforms: g.platforms
     }
   })
 

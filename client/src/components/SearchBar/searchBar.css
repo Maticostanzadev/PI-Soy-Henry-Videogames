@@ -1,6 +1,48 @@
-/* .searchContainer {
-  background-color: aqua;
-  width: 100%;
+.searchContainer {
   display: flex;
-  justify-content: center;
+  position: relative;
+  width: 30%;
+  background-color: transparent;
+  /* border-radius: 5px; */
+  border: 1px solid var(--color-primario);
+  transition: .25s;
+}
+
+/* .searchContainer:hover,
+.searchContainer input {
+  background-color: var(--color-primario);
+  border: 1px solid var(--bg-primario);
+  color: var(--bg-primario);
 } */
+
+.searchInput,
+.searchButton {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: var(--color-primario);
+}
+
+.searchInput::placeholder {
+  color: var(--color-primario);
+  text-align: center;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 8px;
+  font-size: 15px;
+}
+
+.searchButton {
+  width: 50px;
+  font-size: 19px;
+  cursor: pointer;
+  transition: .25s;
+}
+
+.searchButton:hover {
+  background-color: var(--color-primario);
+  color: var(--bg-primario);
+  border-radius: 0 3px 3px 0;
+}

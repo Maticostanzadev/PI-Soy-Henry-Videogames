@@ -1,46 +1,187 @@
+:root {
+  --bg-primario: #282A28;
+  --color-primario: #EEE0CB;
+}
+
 .cardContainer {
-  background-color: grey;
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-  height: 300px;
-  width: 250px;
-  margin: 10px 10px;
-  border-radius: 15px;
+  text-decoration: none;
+  color: var(--bg-primario);
+  position: relative;
+  width: 330px;
+  height: 235px;
+  border-radius: 20px;
+  overflow: hidden;
+  transition: .4s;
+  box-shadow: 0px 0px 11px 1px rgba(0, 0, 0, 0.524);
 }
 
 .cardContainer img {
-  border-radius: 15px 15px 0 0;
-  background-color: rgb(38, 38, 38);
-  min-height: 200px;
-  height: 200px;
+  position: absolute;
   width: 100%;
+  height: 100%;
   object-fit: cover;
+  object-position: center;
+  z-index: 10;
+  transition: .5s;
+}
+
+.bgImg {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  z-index: 20;
+  opacity: 0%;
+  transition: .5s;
 }
 
 .cardInfo {
   display: flex;
   flex-direction: column;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 30%;
+  background-color: var(--color-primario);
+  transition: all .45s;
+  z-index: 30;
+  opacity: 100%;
+}
+
+.cardInfoPpal {
+  display: flex;
+  flex-direction: row;
   justify-content: space-between;
-  height: 100%;
+  height: 70%;
+  padding: 3px 16px;
+  color: var(--bg-primario);
 }
 
 .cardName {
-  width: 100%;
-  text-align: center;
-  margin-top: 5px;
+  height: 50%;
+  font-size: 14px;
+  margin-right: 10px;
+}
+
+.cardRating {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 50%;
+  font-size: 14px;
+  border-left: 1px solid var(--bg-primario);
+  padding-left: 10px;
+}
+
+.cardRating i {
+  margin-left: 5px;
 }
 
 .cardGenres {
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
   flex-wrap: wrap;
-  margin-bottom: 10px;
-  border-top: 1px solid black;
+  justify-content: space-around;
+  align-items: flex-end;
+  padding: 0 10px;
+  margin-bottom: 1px;
+  border-top: 1px solid var(--bg-primario);
+  color: var(--bg-primario);
+  height: 30%;
+  font-size: 13px;
 }
 
-.cardGenre {
-  margin: 0 3px;
-  font-size: 11px;
+.cardHover {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 40;
+  /* opacity: 0%; */
+  transition: .35s;
+  transform: translateY(-300px);
+}
+
+.cardHoverRating {
+  /* background-color: yellow; */
+  height: 30%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 17px;
+  color: var(--color-primario);
+}
+
+.cardHoverName {
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  /* height: 40%; */
+  text-align: center;
+  font-size: 21px;
+  color: var(--color-primario);
+}
+
+.cardHoverGenres {
+  align-items: center;
+  /* background-color: blue; */
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  height: 30%;
+  justify-content: center;
+  text-align: center;
+  font-size: 13px;
+  color: var(--color-primario);
+  margin: 0 5px;
+}
+
+.cardHoverGenres p {
+  margin: 0 10px;
+}
+
+
+.cardContainer:hover {
+  transform: scale(104%);
+  border: 3px solid var(--color-primario);
+  box-shadow: 0 0 5px var(--color-primario);
+}
+
+.cardContainer:hover img {
+  filter: blur(4px);
+  opacity: 85%;
+}
+
+/* ----------------- */
+.cardContainer:hover .bgImg {
+  opacity: 30%;
+}
+
+.cardContainer:hover .cardInfo {
+  transform: translateY(80px);
+  /* opacity: 0; */
+}
+
+.cardContainer:hover .cardInfoPpal {
+  color: var(--color-primario);
+  opacity: 0;
+}
+
+.cardContainer:hover .cardGenres {
+  color: var(--color-primario);
+  opacity: 0;
+}
+
+.cardContainer:hover .cardHover {
+  /* opacity: 100%; */
+  transform: translateY(0);
+}
+
+.cardHover h4:hover {
+  text-decoration: 3px underline;
 }

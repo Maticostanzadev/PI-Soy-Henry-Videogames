@@ -14,8 +14,6 @@ export default function CardsRecharge() {
   }
 
   return (
-    <div className="rechargeContainer">
-      <button className="rechargeButton" onClick={onClick}>Volver a cargar todos los juegos</button>
-    </div>
+    <button className="rechargeButton" onClick={onClick}>Recargar todos los juegos</button>
   )
 }

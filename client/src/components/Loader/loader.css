@@ -1,0 +1,40 @@
+:root {
+  --bg-primario: #282A28;
+  --color-primario: #CCB7AE;
+}
+
+.loaderContainer {
+  display: inline-block;
+  position: relative;
+  background-color: #282a283f;
+  backdrop-filter: blur(20px) !important;
+  border-radius: 50%;
+}
+
+.loaderContainer .loader {
+  width: 150px;
+  height: 150px;
+  border: 2px solid #8d7368;
+  border-top: 2px solid var(--color-primario);
+  border-radius: 50%;
+  animation: loader .75s linear infinite;
+}
+
+@keyframes loader {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loaderText {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 15px;
+  color: #8d7368;
+}

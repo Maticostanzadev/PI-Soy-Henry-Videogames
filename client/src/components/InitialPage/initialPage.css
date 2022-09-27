@@ -1,27 +1,58 @@
-.landingContainer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding-left: 80px;
-  height: 95vh;
-  background-image: url(https://images8.alphacoders.com/476/476343.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center
+:root {
+  --bg-primario: #282A28;
+  --color-primario: #EEE0CB;
 }
 
-.landingTitle {
-  color: rgb(82, 154, 176);
-  margin-bottom: 20px;
+.landingContainer {
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5) url(https://media.rawg.io/media/games/73e/73eecb8909e0c39fb246f457b5d6cbbe.jpg);
+  background-blend-mode: darken;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
 }
 
 .landingButton {
-  height: 30px;
-  width: 715px;
-  border: none;
-  background-color: rgb(82, 154, 176);
-  border-radius: 10px;
-  color: black;
-  margin-top: 20px;
-  font-size: 20px;
+  box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.75);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 150px;
+  bottom: 100px;
+  min-height: 55px;
+  min-width: 350px;
+  background-color: var(--bg-primario);
+  color: var(--color-primario);
+  border: 2px double var(--color-primario);
+  cursor: pointer;
+}
+
+.landingButton span {
+  font-size: 28px;
+  letter-spacing: 2px;
+  position: absolute;
+  left: 25%;
+  transition: .25s ease-in-out all;
+}
+
+.landingButton i {
+  position: absolute;
+  font-size: 28px;
+  opacity: 100px;
+  right: 40%;
+  top: 25%;
+  opacity: 0;
+  transition: .25s ease-in-out all;
+}
+
+.landingButton:hover span {
+  left: 5%;
+}
+
+.landingButton:hover i {
+  opacity: 100%;
+  right: 5%;
 }

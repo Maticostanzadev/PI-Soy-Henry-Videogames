@@ -1,4 +1,4 @@
-import { FILTER_BY_CREATED, FILTER_BY_GENRES, GET_GAMES, GET_GAME_DETAILS, GET_GENRES, GET_PLATFORMS, RESET_FILTERS, RESET_GAMES, SET_PAGE, SORT_GAMES } from "../actions/index";
+import { CREATE_GAME, FILTER_BY_CREATED, FILTER_BY_GENRES, GET_GAMES, GET_GAME_DETAILS, GET_GENRES, GET_PLATFORMS, RESET_CREATE, RESET_FILTERS, RESET_GAMES, RESET_GAME_DETAIL, SET_PAGE, SORT_GAMES } from "../actions/index";
 
 let initialState = {
   allGames: [],
@@ -9,6 +9,7 @@ let initialState = {
     sort: "none",
   },
   gameDetails: {},
+  gameCreated: [],
   allGenres: [],
   allPlatforms: [],
   currentPage: 1
@@ -42,11 +43,12 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         currentPage: action.payload
       }
-    case RESET_GAMES:
+    case CREATE_GAME:
       return {
         ...state,
-        allGames: action.payload
+        gameCreated: action.payload
       }
+
 
     case FILTER_BY_GENRES:
       let allGamesG
@@ -102,7 +104,7 @@ const rootReducer = (state = initialState, action) => {
       if (action.payload === "nameAsc")
         allGamesSort.sort((a, b) => a.name.localeCompare(b.name))
       if (action.payload === "nameDesc")
-        allGamesSort.sort((a, b) => b.name.localeCompare(a.name))
+        allGamesSort.sort((b, a) => a.name.localeCompare(b.name))
       if (action.payload === "ratingAsc")
         allGamesSort.sort((a, b) => a.rating - b.rating)
       if (action.payload === "ratingDesc")
@@ -125,6 +127,25 @@ const rootReducer = (state = initialState, action) => {
           created: "All",
           sort: "none",
         }
+      }
+
+    case RESET_GAMES:
+      return {
+        ...state,
+        allGames: action.payload,
+        filteredGames: action.payload
+      }
+
+    case RESET_CREATE:
+      return {
+        ...state,
+        gameCreated: action.payload
+      }
+
+    case RESET_GAME_DETAIL:
+      return {
+        ...state,
+        gameDetails: action.payload
       }
 
     default:

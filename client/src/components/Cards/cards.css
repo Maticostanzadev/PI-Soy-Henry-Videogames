@@ -1,11 +1,35 @@
+:root {
+  --bg-primario: #282A28;
+  --color-primario: #EEE0CB;
+}
+
 .totalContainer {
+  position: relative;
+  height: 87vh;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 }
 
 .cardsContainer {
+  display: grid;
+  width: 100%;
+  height: 82vh;
+  row-gap: 5px;
+  column-gap: 20px;
+  padding: 5px 20px;
+  grid-template-columns: repeat(5, 1fr);
+  /* justify-items: center;
+  align-items: center; */
+  place-items: center;
+}
+
+.cardsLoader {
+  height: 100vh;
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-around;
+  align-items: center;
+  margin-top: 20px;
+  justify-content: center;
 }

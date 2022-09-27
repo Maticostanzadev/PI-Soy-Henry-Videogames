@@ -6,16 +6,18 @@ import InitialPage from './components/InitialPage/InitialPage'
 import Details from "./components/Details/Details";
 import Create from "./components/Create/Create";
 import Nav from "./components/Nav/Nav.jsx"
+import Warning from "./components/Warning/Warning";
 
 
 function App() {
   return (
     <div>
-      <Route path="/*" component={Nav} />
+      <Route path="/videogames" component={Nav} />
       <Route path="/" exact component={InitialPage} />
       <Route path="/videogames" exact component={Home} />
-      <Route path="/videogame/:id" exact component={Details} />
       <Route path="/videogames/create" exact component={Create} />
+      <Route path="/videogames/detail/:id" exact component={Details} />
+      <Route path="/hola" exact component={Warning} />
     </div>
   );
 }

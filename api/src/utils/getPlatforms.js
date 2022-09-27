@@ -10,9 +10,10 @@ async function getPlatformsApi() {
 
     infoGames.forEach(e => {
       e.platforms.forEach(p => {
-        platformsRepeated.push(p.name)
+        platformsRepeated.push(p.platform.name)
       })
     })
+
 
     let platforms = platformsRepeated.reduce((acc, item) => {
       if (!acc.includes(item)) {

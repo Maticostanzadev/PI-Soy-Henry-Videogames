@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import './searchBar.css';
-import { getGames } from "../../redux/actions";
+import { getGames, sortGames, resetGames } from "../../redux/actions";
+import { useEffect } from "react";
 
 export default function SearchBar() {
 
-  // let stateGames = useSelector(state => state.allGames)
-
+  const { filtersApplied, allGames } = useSelector(state => state)
   const [inp, setInp] = useState('');
   let dispatch = useDispatch()
 
@@ -14,8 +14,15 @@ export default function SearchBar() {
     setInp(e.target.value)
   }
 
+  useEffect(() => {
+    if (filtersApplied.sort !== "none" && allGames.length) {
+      dispatch(sortGames(filtersApplied.sort))
+    }
+  }, [allGames])
+
   function onSubmit(e) {
     e.preventDefault();
+    dispatch(resetGames())
     if (inp.length > 0) {
       dispatch(getGames(inp))
       setInp('')
@@ -25,13 +32,11 @@ export default function SearchBar() {
   }
 
   return (
-    <div className="searchContainer">
-      <form onSubmit={onSubmit} className="form">
-        <input name='game' type='text' onChange={onChange} value={inp} placeholder="Inserte un videojuego" ></input>
-        <button type="submit">BUSCAR</button>
-      </form>
-    </div>
+    <form className="searchContainer" onSubmit={onSubmit}>
+      <input className="searchInput" name='game' type='text' onChange={onChange} value={inp} placeholder="Inserte un videojuego" ></input>
+      <button className="searchButton" type="submit">
+        <i className="fa-solid fa-magnifying-glass"></i>
+      </button>
+    </form>
   )
 }
-
-// <i class="fa-solid fa-magnifying-glass">BUSCAR</i>
