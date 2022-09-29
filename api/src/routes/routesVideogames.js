@@ -15,7 +15,7 @@ router.get('/', async (req, res) => {
   games.msgError ? statusCode = 400 : statusCode = 200
   game ? games = games.slice(0, 15) : ""
 
-  res.status(200).json(games)
+  res.status(statusCode).json(games)
 })
 
 router.post("/", async (req, res) => {

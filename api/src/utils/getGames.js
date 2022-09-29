@@ -6,27 +6,62 @@ const { API_KEY } = process.env;
 async function getGamesApi(game) {
 
   //PRACTICAR CON PROMESAS
-  // let infoApi = []
-  // let url = `https://api.rawg.io/api/games?key=${API_KEY}`
+  //   let infoApi = []
+  //   let url = `https://api.rawg.io/api/games?key=${API_KEY}`
 
-  // axios.get(url).then(response => {
-  //   infoApi = infoApi.concat(response.data.results)
-  //   url = response.data.next
-  // }).then(response => axios.get(url).then(response => {
-  //   infoApi = infoApi.concat(response.data.results)
-  //   url = response.data.next
-  // })).then(response => axios.get(url).then(response => {
-  //   infoApi = infoApi.concat(response.data.results)
-  //   url = response.data.next
-  // })).then(response => axios.get(url).then(response => {
-  //   infoApi = infoApi.concat(response.data.results)
-  //   url = response.data.next
-  // })).then(response => axios.get(url).then(response => {
-  //   infoApi = infoApi.concat(response.data.results)
-  // })).then(response => {
-  //   return infoApi.map(e => e.name)
-  // })
+  //   return axios.get(url).then(response => {
+  //     infoApi = infoApi.concat(response.data.results)
+  //     url = response.data.next
+  //   })
+  //     .then(r => axios.get(url).then(response => {
+  //       infoApi = infoApi.concat(response.data.results)
+  //       url = response.data.next
+  //     }))
+  //     .then(r => axios.get(url).then(response => {
+  //       infoApi = infoApi.concat(response.data.results)
+  //       url = response.data.next
+  //     }))
+  //     .then(r => axios.get(url).then(response => {
+  //       infoApi = infoApi.concat(response.data.results)
+  //       url = response.data.next
+  //     }))
+  //     .then(r => axios.get(url).then(response => {
+  //       infoApi = infoApi.concat(response.data.results)
+  //       url = response.data.next
+  //       return infoApi.map(g => g.name)
+  //     }))
+  // }
   //PRACTICAR CON PROMESAS
+
+  //PRACTICAR CON PROMESAS2 --------------
+  // let pags = [1, 2, 3, 4, 5]
+  // let infoApiPromises = []
+
+  // let infoApiPromise
+
+  // for (const pag of pags) {
+  //   infoApiPromise = axios.get(`https://api.rawg.io/api/games?key=${API_KEY}&page=${pag}`)
+
+  //   infoApiPromises.push(infoApiPromise.then(response => response.data.results))
+  // }
+
+  // let infoApi = await Promise.all(infoApiPromises)
+  // infoApi = infoApi.flat()
+
+  // return infoApi.map(g => {
+  //   return {
+  //     id: g.id,
+  //     name: g.name,
+  //     rating: g.rating,
+  //     background_image: g.background_image,
+  //     genres: g.genres.map(genre => genre.name),
+  //     created: false,
+  //     platforms: g.platforms
+  //   }
+  // })
+
+  //PRACTICAR CON PROMESAS2 --------------
+
 
   let infoApi = []
   if (!game) {

@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { createGame, getGenres, getPlatforms, resetCreate } from '../../redux/actions';
+import { createGame, getGenres, getPlatforms, resetCreate, resetGames } from '../../redux/actions';
 import './create.css'
 
 export default function Create() {
@@ -25,6 +25,7 @@ export default function Create() {
 
   useEffect(() => {
     dispatch(resetCreate())
+    dispatch(resetGames())
     if (!allGenres.length) {
       dispatch(getGenres())
     }

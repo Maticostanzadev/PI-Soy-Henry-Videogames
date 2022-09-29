@@ -25,7 +25,7 @@ async function createGame({ name, description, genres, platforms, release_date, 
 
     game.addGenres(genres);
 
-    return { msg: "El videojuego se ha agregado con éxito, dirígite a la página principal y recarga los juegos para verlo!" }
+    return { msg: "El videojuego se ha agregado con éxito, dirígite a la página principal para verlo!" }
   }
   catch (e) {
     return { msgError: "Lo lamentamos, hubo un error al intentar crear el videojuego!" }
