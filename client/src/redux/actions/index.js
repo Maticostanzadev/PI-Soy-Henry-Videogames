@@ -20,6 +20,8 @@ export function getGames(game) {
     return axios.get(`http://localhost:3001/videogames${game ? `?game=${game}` : ""}`)
       .then(response => {
         dispatch({ type: GET_GAMES, payload: response.data })
+      }, error => {
+        dispatch({ type: GET_GAMES, payload: error.response.data })
       })
   }
 }

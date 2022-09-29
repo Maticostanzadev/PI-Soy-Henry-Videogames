@@ -115,7 +115,6 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         filteredGames: allGamesSort,
-        currentPage: 1,
         filtersApplied: {
           ...state.filtersApplied,
           sort: action.payload

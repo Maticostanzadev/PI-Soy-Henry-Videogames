@@ -18,7 +18,7 @@ export default function Cards() {
   const [gamesPerPage] = useState(15)
   const indexLastGame = currentPage * gamesPerPage
   const indexFirstGame = indexLastGame - gamesPerPage
-  const currentGames = filteredGames.slice(indexFirstGame, indexLastGame)
+  const currentGames = Array.isArray(filteredGames) ? filteredGames.slice(indexFirstGame, indexLastGame) : []
   const filteredGamesLength = filteredGames.length
 
   function paginated(page) {
@@ -43,22 +43,24 @@ export default function Cards() {
 
   return (
     <div className="totalContainer">
-      {currentGames.length
-        ? <div className="cardsContainer">
-          {currentGames.map(g =>
-            <Link key={g.id} to={`/videogames/detail/${g.id}`}>
-              <Card
-                name={g.name}
-                background_image={g.background_image}
-                genres={g.genres}
-                rating={g.rating}
-              />
-            </Link>
-          )}
-        </div>
-        : allGames.length
-          ? <Warning message="No se encontraron juegos con esos filtros" />
-          : <Loader />}
+      {allGames.msgError
+        ? <Warning message={allGames.msgError} />
+        : currentGames.length
+          ? <div className="cardsContainer">
+            {currentGames.map(g =>
+              <Link key={g.id} to={`/videogames/detail/${g.id}`}>
+                <Card
+                  name={g.name}
+                  background_image={g.background_image}
+                  genres={g.genres}
+                  rating={g.rating}
+                />
+              </Link>
+            )}
+          </div>
+          : allGames.length
+            ? <Warning message="No se encontraron juegos con esos filtros" />
+            : <Loader />}
       <Paginated paginated={paginated} allGames={filteredGamesLength} gamesPerPage={gamesPerPage} next={next} previous={previous} />
     </div>
   )

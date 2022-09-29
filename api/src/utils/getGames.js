@@ -135,7 +135,7 @@ async function getGames(game) {
     // let games = gamesApi.concat(gamesDb);
     let games = gamesDb.concat(gamesApi);
 
-    if (game && games.length === 0) return `No se encontraron juegos con el nombre: ${game}`;
+    if (game && games.length === 0) return { msgError: `No se encontraron juegos con el nombre: ${game}` };
 
     return games;
   }
