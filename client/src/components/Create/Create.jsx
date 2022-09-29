@@ -163,6 +163,10 @@ export default function Create() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [gameCreated])
 
+  let component = document.body
+  let boton = component.querySelector("button[disabled]")
+  console.log(boton)
+
   return (
     <div className="createContainer">
       <form className="createForm" onSubmit={onSubmit}>
@@ -170,7 +174,7 @@ export default function Create() {
           <div className="leftForm leftRightForm">
             <div className="inputGroup">
               <input className={errors.name ? "errorInput" : "createInput"} type="text" name="name" value={game.name} onChange={onChange} />
-              <label className={errors.name ? "errorLabel" : "inputLabel"}>Nombre</label>
+              <label className={errors.name ? "errorLabel" : "inputLabel"}>Nombre del juego</label>
               {errors.name ? <p className="errorText"><i className="fa-solid fa-circle-exclamation"></i>{errors.name}</p> : ""}
             </div>
 
