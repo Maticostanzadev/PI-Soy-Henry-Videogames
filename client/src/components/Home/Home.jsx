@@ -21,6 +21,7 @@ export default function Home() {
     if (!allGames.length) {
       dispatch(getGames())
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   useEffect(() => {

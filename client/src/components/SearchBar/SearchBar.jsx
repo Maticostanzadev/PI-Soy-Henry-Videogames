@@ -18,6 +18,7 @@ export default function SearchBar() {
     if (filtersApplied.sort !== "none" && allGames.length) {
       dispatch(sortGames(filtersApplied.sort))
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [allGames])
 
   function onSubmit(e) {

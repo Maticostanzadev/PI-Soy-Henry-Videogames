@@ -163,10 +163,6 @@ export default function Create() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [gameCreated])
 
-  let component = document.body
-  let boton = component.querySelector("button[disabled]")
-  console.log(boton)
-
   return (
     <div className="createContainer">
       <form className="createForm" onSubmit={onSubmit}>

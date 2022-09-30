@@ -1,5 +1,5 @@
 import React from "react";
-import { render, screen } from '@testing-library/react'
+import { render } from '@testing-library/react'
 import Create from '../components/Create/Create'
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";

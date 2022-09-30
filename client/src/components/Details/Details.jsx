@@ -1,7 +1,7 @@
 import React, { useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { Link, useParams } from "react-router-dom"
-import { getGameDetails, resetCreate, resetGameDetail } from '../../redux/actions'
+import { getGameDetails, resetGameDetail } from '../../redux/actions'
 import './details.css'
 import Loader from '../Loader/Loader'
 import Warning from '../Warning/Warning'

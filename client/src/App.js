@@ -6,8 +6,6 @@ import InitialPage from './components/InitialPage/InitialPage'
 import Details from "./components/Details/Details";
 import Create from "./components/Create/Create";
 import Nav from "./components/Nav/Nav.jsx"
-import Warning from "./components/Warning/Warning";
-
 
 function App() {
   return (
@@ -20,15 +18,5 @@ function App() {
     </div>
   );
 }
-
-
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <h1>Henry Videogames</h1>
-//     </div>
-//   );
-// }
 
 export default App;
